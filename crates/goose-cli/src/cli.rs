@@ -2131,7 +2131,7 @@ pub async fn cli() -> anyhow::Result<()> {
         Some(Command::Recipe { command }) => handle_recipe_subcommand(command),
         Some(Command::Plugin { command }) => handle_plugin_subcommand(command),
         Some(Command::Term { command }) => handle_term_subcommand(command).await,
-        Some(Command::Tui { args }) => crate::commands::tui::handle_tui(args),
+        Some(Command::Tui { args }) => crate::commands::tui::handle_tui(args).await,
         #[cfg(feature = "local-inference")]
         Some(Command::LocalModels { command }) => handle_local_models_command(command).await,
         Some(Command::Review {
